@@ -1,0 +1,6 @@
+{
+  "name": "ruigallery.xyz",
+  "description": "Personal artistic archive, curated portfolio, research laboratory, and professional ecosystem for RUI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
