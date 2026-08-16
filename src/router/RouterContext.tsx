@@ -53,7 +53,7 @@ function parsePath(pathname: string, search: string, hash: string): RouteMatch {
   }
 
   // Match routes
-  if (cleanPath === '' || cleanPath === '/') {
+  if (cleanPath === '' || cleanPath === '/' || cleanPath.toLowerCase() === '/work') {
     return { path: cleanPath, name: 'home', params: {}, queryParams };
   }
   if (cleanPath === '/laboratory') {

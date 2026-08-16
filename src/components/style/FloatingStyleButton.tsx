@@ -1,9 +1,16 @@
 import React from 'react';
+import { useRouter } from '../../router/RouterContext';
 import { useStyle } from '../../context/StyleContext';
 import { Sparkles, Palette, RotateCcw } from 'lucide-react';
 
 export const FloatingStyleButton: React.FC = () => {
+  const { currentRoute } = useRouter();
   const { settings, openStyleModal, replayAnimation } = useStyle();
+
+  // Hide on About page to remove style change optionality
+  if (currentRoute.name === 'about') {
+    return null;
+  }
 
   return (
     <div

@@ -13,8 +13,6 @@ import { EntryView } from './components/pages/EntryView';
 import { ArchiveTable } from './components/archive/ArchiveTable';
 import { AboutView } from './components/about/AboutView';
 import { AdminDashboard } from './components/admin/AdminDashboard';
-import { StyleSwitcherModal } from './components/style/StyleSwitcherModal';
-import { FloatingStyleButton } from './components/style/FloatingStyleButton';
 import { ArrowLeft } from 'lucide-react';
 
 const AppContent: React.FC = () => {
@@ -93,10 +91,6 @@ const AppContent: React.FC = () => {
       <Header />
       <main className="flex-grow">{renderCurrentView()}</main>
       <Footer />
-
-      {/* Global Style Switcher Floating Pill & Modal */}
-      <FloatingStyleButton />
-      <StyleSwitcherModal />
     </div>
   );
 };

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from '../../router/RouterContext';
-import { useStyle } from '../../context/StyleContext';
-import { Menu, X, Terminal, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, Terminal, ArrowUpRight } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const { currentRoute } = useRouter();
-  const { settings, openStyleModal } = useStyle();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -56,22 +54,7 @@ export const Header: React.FC = () => {
             </a>
           ))}
 
-          {/* Style & Calligraphy Switcher Trigger */}
           <div className="border-l archival-border pl-6 flex items-center space-x-3">
-            <button
-              onClick={openStyleModal}
-              id="header-style-switcher-btn"
-              className="flex items-center space-x-1.5 text-xs font-mono px-3 py-1 rounded border archival-border hover:border-[var(--text-primary,#171717)] text-[var(--text-primary,#171717)] bg-[var(--bg-surface,#FFFFFF)] hover:bg-[var(--bg-subtle,#F4F1EA)] transition-all shadow-xs"
-              title="Change visual styles, calligraphy scripts, themes & typography"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[var(--accent-color,#171717)]" />
-              <span>Styles:</span>
-              <span className="uppercase font-semibold text-[var(--text-primary,#171717)]">
-                {settings.calligraphyScript}
-              </span>
-            </button>
-
-            {/* Admin prototype trigger */}
             <a
               href="/admin"
               className={`flex items-center space-x-1 text-xs font-mono px-2.5 py-1 rounded border transition-colors ${
@@ -89,14 +72,6 @@ export const Header: React.FC = () => {
 
         {/* Mobile Controls */}
         <div className="flex items-center space-x-2 md:hidden">
-          <button
-            onClick={openStyleModal}
-            className="flex items-center space-x-1 text-xs font-mono px-2.5 py-1 border archival-border rounded text-[var(--text-primary,#171717)] bg-[var(--bg-surface,#FFFFFF)]"
-            title="Styles"
-          >
-            <Sparkles className="w-3 h-3 text-[var(--accent-color,#171717)]" />
-            <span className="uppercase text-[10px]">{settings.calligraphyScript}</span>
-          </button>
           <a
             href="/admin"
             className="text-xs font-mono px-2 py-1 border archival-border text-[var(--text-secondary,#615E58)] rounded"
@@ -133,21 +108,6 @@ export const Header: React.FC = () => {
                 <ArrowUpRight className="w-4 h-4 text-[var(--text-muted,#A3A099)]" />
               </a>
             ))}
-
-            {/* Mobile Styles Action */}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openStyleModal();
-              }}
-              className="py-2.5 text-xs font-mono flex items-center justify-between text-[var(--text-primary,#171717)] font-medium border-b archival-border w-full text-left"
-            >
-              <span className="flex items-center space-x-2">
-                <Sparkles className="w-3.5 h-3.5 text-[var(--accent-color,#171717)]" />
-                <span>Style &amp; Calligraphy Engine ({settings.theme} / {settings.calligraphyScript})</span>
-              </span>
-              <span>⚙</span>
-            </button>
 
             <a
               href="/admin"

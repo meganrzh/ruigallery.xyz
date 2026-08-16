@@ -1,11 +1,8 @@
 import React from 'react';
 import { useData } from '../../context/DataContext';
-import { useStyle } from '../../context/StyleContext';
-import { Sparkles } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { authorProfile } = useData();
-  const { settings, openStyleModal } = useStyle();
 
   return (
     <footer
@@ -59,15 +56,6 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <button
-                  onClick={openStyleModal}
-                  className="hover:text-[var(--text-primary,#171717)] transition-colors flex items-center space-x-1.5 text-left"
-                >
-                  <Sparkles className="w-3 h-3 text-[var(--accent-color,#171717)]" />
-                  <span>Choose Style ({settings.theme} / {settings.calligraphyScript})</span>
-                </button>
-              </li>
-              <li>
                 <a href="/admin" className="hover:text-[var(--text-primary,#171717)] transition-colors">
                   Content Management (/admin)
                 </a>
@@ -100,13 +88,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t archival-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[var(--text-muted,#8C8880)]">
           <div>© {new Date().getFullYear()} RUI. All inquiries, field notes, and artistic rights reserved.</div>
           <div className="flex items-center space-x-4">
-            <button
-              onClick={openStyleModal}
-              className="text-[var(--text-primary,#171717)] hover:underline flex items-center space-x-1"
-            >
-              <span>Aesthetics:</span>
-              <span className="uppercase">{settings.theme} • {settings.calligraphyScript}</span>
-            </button>
+            <span>CATALOGUE RAISONNÉ</span>
             <span>•</span>
             <span className="text-[var(--text-primary,#171717)]">SYSTEM STABLE</span>
           </div>
